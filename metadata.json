@@ -1,0 +1,6 @@
+{
+  "name": "모아픽 (MOAPIC)",
+  "description": "유튜브 프로덕션, 채널 컨설팅 및 매니지먼트 전문 에이전시, 모아픽 공식 포트폴리오 및 맞춤형 견적 상담 시스템",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

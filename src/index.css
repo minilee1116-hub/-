@@ -1,0 +1,54 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-display: "GmarketSans", "Outfit", "Noto Sans KR", sans-serif;
+  --font-heavy: "GmarketSans", "Outfit", sans-serif;
+  --font-outfit: "Outfit", "GmarketSans", sans-serif;
+  --font-space: "Space Grotesk", "GmarketSans", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #050505;
+  color: #eeeeee;
+}
+
+/* Premium Dark Textured Canvas */
+.bg-paper {
+  background-color: #050505; /* Black paper base */
+  background-image: 
+    /* 1. Fine subtle fiber/paper pattern */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='high-paper-fibers'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' result='noise' stitchTiles='stitch'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23111111' surfaceScale='3.4' result='diffuse'%3E%3CfeDistantLight azimuth='65' elevation='45'/%3E%3C/feDiffuseLighting%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.9'/%3E%3CfeFuncG type='linear' slope='0.9'/%3E%3CfeFuncB type='linear' slope='0.9'/%3E%3C/feComponentTransfer%3E%3CfeBlend mode='multiply' in='SourceGraphic' in2='diffuse'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23high-paper-fibers)'/%3E%3C/svg%3E"),
+    
+    /* 2. Distinctive Fine Grain Sand & Pulp Particles */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='sharp-pulp'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.015 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sharp-pulp)'/%3E%3C/svg%3E"),
+    
+    /* 3. Subtle Clean Studio Lighting Vignette */
+    linear-gradient(to bottom, rgba(5, 5, 5, 0.95) 0%, rgba(13, 13, 16, 0.98) 100%);
+  
+  background-blend-mode: multiply, overlay, normal;
+}
+
+
