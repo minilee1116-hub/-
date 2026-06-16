@@ -1057,7 +1057,7 @@ export default function AdminPanel({
                       className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-hidden focus:border-[#4B89FF]"
                     >
                       <option value="shorts">유튜브 쇼츠</option>
-                      <option value="production">영상 제제작</option>
+                      <option value="production">영상 제작</option>
                       <option value="shooting">촬영</option>
                       <option value="planning">기획</option>
                       <option value="management">매니지먼트</option>

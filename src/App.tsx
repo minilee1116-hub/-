@@ -63,7 +63,13 @@ export default function App() {
   const loadLocalPortfolios = () => {
     const saved = localStorage.getItem('moapic_portfolios');
     if (saved) {
-      setPortfolios(JSON.parse(saved));
+      const parsed = JSON.parse(saved);
+      if (parsed.length < DEFAULT_PORTFOLIOS.length) {
+        setPortfolios(DEFAULT_PORTFOLIOS);
+        localStorage.setItem('moapic_portfolios', JSON.stringify(DEFAULT_PORTFOLIOS));
+      } else {
+        setPortfolios(parsed);
+      }
     } else {
       setPortfolios(DEFAULT_PORTFOLIOS);
       localStorage.setItem('moapic_portfolios', JSON.stringify(DEFAULT_PORTFOLIOS));
@@ -169,7 +175,7 @@ export default function App() {
                       transform: translateX(0);
                     }
                     100% {
-                      transform: translateX(-50%);
+                      transform: translateX(calc(-50% - 10px));
                     }
                   }
                   .marquee-stream {
@@ -186,7 +192,7 @@ export default function App() {
 
                 {/* Duplicated portfolios list renders twice for complete endless loop coverage */}
                 <div 
-                  className="marquee-stream flex gap-5 px-4"
+                  className="marquee-stream flex gap-5"
                   style={{ animationDuration: `${marqueeDuration}s` }}
                 >
                   {[...marqueeItems, ...marqueeItems].map((item, index) => (

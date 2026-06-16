@@ -6,7 +6,7 @@ export const DEFAULT_PORTFOLIOS: PortfolioItem[] = [
     title: '테크 크리에이터 IT 트렌드 신작 리뷰 편집 대행',
     category: 'production',
     thumbnailUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Placeholder or sample
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     stats: '조회수 235만회 달성',
     highlights: ['초단위 텐션 조절', '3D 이펙트 & 트래킹', '시청유지율 64% 돌파'],
     clientName: 'IT 테크튜브 (구독자 85만)',
@@ -16,7 +16,7 @@ export const DEFAULT_PORTFOLIOS: PortfolioItem[] = [
   },
   {
     id: 'p2',
-    title: '성장 마인드셋 & 제테크 채널 컨설팅 및 기획',
+    title: '성장 마인드셋 & 재테크 채널 컨설팅 및 기획',
     category: 'planning',
     thumbnailUrl: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -50,7 +50,8 @@ export const DEFAULT_PORTFOLIOS: PortfolioItem[] = [
     highlights: ['4K 멀티캠 동기화', '전문 조명 디렉팅', '인물 포커스 사운드'],
     clientName: '엔터허브 스튜디오',
     description: '4인 출연진의 예능 구도를 위해 시네마 릭 카메라 5대와 고정 핀마이크, 다층적 조명 세팅을 거쳐 현장 현장감을 고스란히 담아낸 풀패키지 프로덕션 촬영 레퍼런스입니다.',
-    createdAt: '2026-05-01'
+    createdAt: '2026-05-01',
+    isFeatured: true
   },
   {
     id: 'p5',
@@ -62,7 +63,8 @@ export const DEFAULT_PORTFOLIOS: PortfolioItem[] = [
     highlights: ['메타데이터 SEO 세팅', '고객 커뮤니티 정밀 관리', '댓글 구매 전환 퍼널'],
     clientName: '글로벌 Edu코리아',
     description: '단순한 영상 업로드를 넘어 유입 태그, 검색 최적화, 썸네일 테스트, 커뮤니티 소통 및 최종 웹사이트 상담으로 연결하는 전환 트리거를 설계하여 채널의 비즈니스 효율을 극대화했습니다.',
-    createdAt: '2026-04-28'
+    createdAt: '2026-04-28',
+    isFeatured: true
   },
   {
     id: 'p6',
@@ -74,7 +76,111 @@ export const DEFAULT_PORTFOLIOS: PortfolioItem[] = [
     highlights: ['트렌디 스피드 램핑', '글로우 모션 이펙트', '브랜드 무아레 사선 기획'],
     clientName: '패션 스트릿 하우스',
     description: '성수동 팝업스토어 전경을 속도 감각적 슬로우/패스트 컷과 독보적인 컬러 그레이딩으로 표현하여 인스타그램 릴스를 후끈하게 달군 티저용 프리미엄 스케치 스릴 영상입니다.',
-    createdAt: '2026-05-05'
+    createdAt: '2026-05-05',
+    isFeatured: true
+  },
+  {
+    id: 'p7',
+    title: '유튜브 스포츠 다큐멘터리 극본 및 연출 편집 대행',
+    category: 'production',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '3일 만에 100만뷰 돌파',
+    highlights: ['비장한 오케스트라 사운드', '중후한 시네마 톤앤매너', '자체 제작 인포그래픽'],
+    clientName: '스포츠인사이드 (구독자 40만)',
+    description: '역사적 스포츠 명승부의 뒷이야기를 극적인 서사 구성과 영화 같은 컬러 그레이딩, 웅장한 사운드 믹싱을 통해 감동을 극대화한 명작 다큐멘터리 콘텐츠입니다.',
+    createdAt: '2026-06-01',
+    isFeatured: true
+  },
+  {
+    id: 'p8',
+    title: '뷰티 & 라이프스타일 인플루언서 릴스 감성 브랜드 브랜딩',
+    category: 'shorts',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '릴스 누적 320만뷰',
+    highlights: ['밀착 피부 보정 시스템', '클린 감성 타이포', '릴스 트렌드 사운드 믹싱'],
+    clientName: '셀럽 아틀리에 (뷰티 크리에이터)',
+    description: '고급스러운 감성의 뷰티 라이프스타일을 담아내는 숏폼 비디오 브랜딩 사례입니다. 부드럽고 차분한 컬러 매칭과 매끄러운 컷 전환으로 소장 가치 높은 비주얼을 제공합니다.',
+    createdAt: '2026-06-03',
+    isFeatured: true
+  },
+  {
+    id: 'p9',
+    title: '유명 법률사무소 지식 채널 성과기반 설계 및 매니징',
+    category: 'management',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '인바운드 수임 상담 +280%',
+    highlights: ['정밀 법률 시나리오 검수', '타겟 맞춤 키워드 SEO', '고신뢰도 자막 템플릿'],
+    clientName: '법무법인 로드맵',
+    description: '자칫 무겁고 딱딱하게 느껴질 수 있는 실생활 법률 상식을 대중의 눈높이에 맞춰 쉽고 유용하게 기획했습니다. 정밀 검색 유입(SEO)을 설계하여 법률 상담 전환으로 직접 유도했습니다.',
+    createdAt: '2026-06-05',
+    isFeatured: true
+  },
+  {
+    id: 'p10',
+    title: '글로벌 여행 버라이어티 고감도 시네마틱 브이로그',
+    category: 'production',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1460881680858-30d872d5b530?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '평균 시청 지속 시간 8분 돌파',
+    highlights: ['사운드스케이프 현장 입체화', '커스텀 색보정 LUT 적용', '몰입형 로케이션 인트로'],
+    clientName: '방랑크루 (여행 저널)',
+    description: '이국적인 도심과 대자연의 조화를 드라마 수준의 고화질 전경 샷과 유려한 카메라 무브먼트로 제작했습니다. 섬세하고 자연스러운 현장 ASMR 수음 효과로 현실감을 살렸습니다.',
+    createdAt: '2026-06-07',
+    isFeatured: true
+  },
+  {
+    id: 'p11',
+    title: '인공지능 트렌드 및 스타트업 소개 애니메이션 다큐',
+    category: 'planning',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '신규 오가닉 유입 35만명',
+    highlights: ['인포그래픽 2D 모션', '어려운 IT 개념 시각화', '스토리텔링 극본 최적화'],
+    clientName: '미래인사이트 (테크 채널)',
+    description: 'AI 신기술과 트렌드를 아주 쉽고 재미있게 풀어낸 기획 레퍼런스입니다. 시각적인 비유 애니메이션 그래픽을 대폭 적용하여 높은 이탈율을 철저히 차단했습니다.',
+    createdAt: '2026-06-08',
+    isFeatured: true
+  },
+  {
+    id: 'p12',
+    title: '유형별 게임 채널 하이라이트 및 페이스캠 텐션 극대화',
+    category: 'shorts',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '유튜브 쇼츠 180만뷰',
+    highlights: ['밈(Meme) 활용 자막 연출', '페이스 모션 트래킹', '사운드 이펙트 리듬 매칭'],
+    clientName: '겜박스 오피셜',
+    description: '실시간 스트리밍의 웃음 골든타임을 초정밀 수동 컷편집과 센스 넘치는 인터넷 밈, 유머러스한 화면 줌 효과를 더해 중독적인 스낵 비디오로 탄생시켰습니다.',
+    createdAt: '2026-06-10',
+    isFeatured: true
+  },
+  {
+    id: 'p13',
+    title: '프리미엄 레스토랑 브랜드 스토리텔링 시네마틱 CF',
+    category: 'shooting',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '네이버 예약 전환 전월비 +150%',
+    highlights: ['미시적 조리 과정 접사 촬영', '재즈 사운드 리마스터링', '감각적인 플레이팅 조명'],
+    clientName: '다이닝 수작 (성수본점)',
+    description: '고급 프렌치 코스 식재료의 질감과 셰프의 장인정신 신념을 시각 및 청각적 아우라로 완벽 수록했습니다. 실제 오프라인 예약으로 곧바로 연결되는 타겟 퍼포먼스 기획입니다.',
+    createdAt: '2026-06-12',
+    isFeatured: true
+  },
+  {
+    id: 'p14',
+    title: '글로벌 교육 브랜드 온라인 지식 아카데미 론칭 컨설팅',
+    category: 'planning',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    stats: '아카데미 수강 매출 폭발적 성장',
+    highlights: ['교육용 비디오 마케팅 분석', '유입 검색 포털 SEO', '지속적인 인터랙션 설계'],
+    clientName: '에듀글로벌 글로벌캠퍼스',
+    description: '온라인 아카데미 전문 강의 지식을 유튜브 생태계에 맞춰 감각적이고 유익한 10분 요약 스니펫 스타일로 재기획하여 폭넓은 신규 가입자를 성공적으로 유지시켰습니다.',
+    createdAt: '2026-06-14',
+    isFeatured: true
   }
 ];
-
