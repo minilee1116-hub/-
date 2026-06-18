@@ -48,16 +48,7 @@ export default function Navbar({ currentView, onNavigate, onOpenAdmin, customLog
           onClick={() => onNavigate('home')}
           id="navbar-logo"
         >
-          {/* Minimized isometric cube with premium hover grow */}
-          <div className="transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
-            <img 
-              src={customMiniLogo || customLogo || companyLogo} 
-              alt="MOAPIC Mini Logo" 
-              className="h-9 w-auto max-w-[120px] object-contain block"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-          <span className="font-extrabold text-[15px] text-neutral-900 tracking-widest font-mono transition-colors group-hover:text-[#4B89FF] hidden sm:inline-block">
+          <span className="font-extrabold text-[15px] text-neutral-900 tracking-widest font-mono transition-colors group-hover:text-[#4B89FF] inline-block">
             MOAPIC
           </span>
         </div>

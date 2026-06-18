@@ -17,16 +17,6 @@ export default function HeroSection({ onScrollToPortfolio, onScrollToConsulting,
       <div className="max-w-7xl mx-auto border-none bg-transparent pt-0 pb-6 px-6 text-center relative overflow-hidden mb-6">
         <div className="absolute inset-0 bg-radial-gradient(circle at center, rgba(75,137,255,0.015), transparent 75%) pointer-events-none" />
         
-        {/* Isometric 3D Cube Icon Stack - Replaced with the requested Company Logo 1 image */}
-        <div className="flex justify-center mb-1 mt-0">
-          <img 
-            src={customLogo || companyLogo} 
-            alt="MOAPIC Company Logo" 
-            className="w-full max-w-[240px] md:max-w-[320px] h-auto object-contain drop-shadow-xs select-none"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-
         {/* Title Name In Solid Custom Blue */}
         <h1 className="text-5xl md:text-7xl font-black tracking-[-0.03em] text-[#4B89FF] mb-2 font-sans select-none leading-none">
           MOAPIC
@@ -89,12 +79,6 @@ export default function HeroSection({ onScrollToPortfolio, onScrollToConsulting,
         
         {/* Header container */}
         <div className="flex items-center justify-center space-x-3 mb-8 border-b border-neutral-900 pb-5">
-          <img 
-            src={customMiniLogo || customLogo || companyLogo} 
-            alt="MOAPIC Mini Logo" 
-            className="h-9 md:h-11 w-auto max-w-[140px] object-contain block relative -top-[3px]"
-            referrerPolicy="no-referrer"
-          />
           <h2 className="text-xl md:text-2xl font-bold text-white tracking-widest font-display">
             유튜브 프로덕션
           </h2>
