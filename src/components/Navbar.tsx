@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Lock } from 'lucide-react';
 import companyLogo from '../assets/images/company_logo1_1780221044248.png';
+import logoMini from '../assets/images/logo-mini-blue.png';
 
 interface NavbarProps {
   currentView: 'home' | 'portfolio' | 'service' | 'consulting';
@@ -48,7 +49,14 @@ export default function Navbar({ currentView, onNavigate, onOpenAdmin, customLog
           onClick={() => onNavigate('home')}
           id="navbar-logo"
         >
-          <span className="font-extrabold text-[15px] text-neutral-900 tracking-widest font-mono transition-colors group-hover:text-[#4B89FF] inline-block">
+          <div className="transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+            <img
+              src={logoMini}
+              alt="MOAPIC Mini Logo"
+              className="h-9 w-auto max-w-[120px] object-contain block"
+            />
+          </div>
+          <span className="font-extrabold text-[15px] text-neutral-900 tracking-widest font-mono transition-colors group-hover:text-[#4B89FF] hidden sm:inline-block">
             MOAPIC
           </span>
         </div>
