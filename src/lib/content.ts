@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import { PortfolioItem } from '../types';
+import { PortfolioItem, Consultation } from '../types';
 import { DEFAULT_PORTFOLIOS } from '../data/defaultPortfolios';
 
 /**
@@ -108,4 +108,37 @@ export async function adminSignOut() {
 export async function getActiveSession() {
   const { data } = await supabase.auth.getSession();
   return data.session;
+}
+
+// ===== 상담 문의 (Consultations) =====
+
+// 고객(비로그인)도 접수 가능 (RLS: anon insert 허용)
+export async function submitConsultation(c: Consultation): Promise<void> {
+  const { error } = await supabase.from('consultations').insert({ id: c.id, data: c });
+  if (error) throw error;
+}
+
+// 관리자 전용: 접수 목록 조회 (최신순)
+export async function fetchConsultations(): Promise<Consultation[]> {
+  const { data, error } = await supabase
+    .from('consultations')
+    .select('data, created_at')
+    .order('created_at', { ascending: false });
+  if (error) {
+    console.error('[content] fetchConsultations error:', error.message);
+    return [];
+  }
+  return (data ?? []).map((row) => row.data as Consultation);
+}
+
+// 관리자 전용: 상태 변경 등 (전체 객체 upsert)
+export async function upsertConsultation(c: Consultation): Promise<void> {
+  const { error } = await supabase.from('consultations').upsert({ id: c.id, data: c });
+  if (error) throw error;
+}
+
+// 관리자 전용: 삭제
+export async function deleteConsultationById(id: string): Promise<void> {
+  const { error } = await supabase.from('consultations').delete().eq('id', id);
+  if (error) throw error;
 }

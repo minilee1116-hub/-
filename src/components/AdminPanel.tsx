@@ -10,7 +10,7 @@ import {
 import { PortfolioItem, Consultation } from '../types';
 import { DEFAULT_PORTFOLIOS } from '../data/defaultPortfolios';
 import { getYouTubeId, getYouTubeThumbnailUrl } from '../utils/youtube';
-import { fetchPortfolios, replaceAllPortfolios, adminSignIn, adminSignOut, getActiveSession } from '../lib/content';
+import { fetchPortfolios, replaceAllPortfolios, adminSignIn, adminSignOut, getActiveSession, fetchConsultations, upsertConsultation, deleteConsultationById, fetchSettings, saveSetting } from '../lib/content';
 
 interface AdminPanelProps {
   isOpen: boolean;
@@ -60,6 +60,7 @@ export default function AdminPanel({
   const [activeTab, setActiveTab] = useState<'portfolio' | 'consulting' | 'site_settings'>('portfolio');
   const [portfolios, setPortfolios] = useState<PortfolioItem[]>([]);
   const [consultationList, setConsultationList] = useState<Consultation[]>([]);
+  const [consultMaintenance, setConsultMaintenance] = useState(true);
   
   // Portfolio Modal Edit Form states
   const [isFormModalOpen, setIsFormModalOpen] = useState(false);
@@ -137,12 +138,24 @@ export default function AdminPanel({
     const items = await fetchPortfolios();
     setPortfolios(items);
 
-    // 상담 문의: 현재 상담 폼이 점검 중이라 비어 있음 (추후 DB 연동 예정)
-    const savedC = localStorage.getItem('moapic_consultations');
-    if (savedC) {
-      setConsultationList(JSON.parse(savedC));
-    } else {
-      setConsultationList([]);
+    // 상담 문의: 중앙 DB(Supabase)에서 로드
+    const consults = await fetchConsultations();
+    setConsultationList(consults);
+
+    // 상담 점검 모드 설정 로드 (기본 ON)
+    const settings = await fetchSettings();
+    setConsultMaintenance((settings.consulting_maintenance ?? 'on') !== 'off');
+  };
+
+  const handleToggleMaintenance = async () => {
+    const next = !consultMaintenance;
+    setConsultMaintenance(next);
+    try {
+      await saveSetting('consulting_maintenance', next ? 'on' : 'off');
+    } catch (err) {
+      console.error(err);
+      alert('점검 모드 저장 중 오류가 발생했습니다.');
+      setConsultMaintenance(!next);
     }
   };
 
@@ -323,10 +336,15 @@ export default function AdminPanel({
       confirmText: '영구 삭제',
       cancelText: '취소',
       isDanger: true,
-      onConfirm: () => {
+      onConfirm: async () => {
         const updatedList = consultationList.filter((item) => item.id !== id);
         setConsultationList(updatedList);
-        localStorage.setItem('moapic_consultations', JSON.stringify(updatedList));
+        try {
+          await deleteConsultationById(id);
+        } catch (err) {
+          console.error(err);
+          alert('삭제 중 오류가 발생했습니다.');
+        }
         if (selectedConsultation?.id === id) {
           setSelectedConsultation(null);
         }
@@ -336,9 +354,11 @@ export default function AdminPanel({
   };
 
   const handleUpdateStatus = (id: string, newStatus: 'pending' | 'reviewed' | 'completed') => {
+    let updated: Consultation | null = null;
     const updatedList = consultationList.map((item) => {
       if (item.id === id) {
         const up = { ...item, status: newStatus };
+        updated = up;
         if (selectedConsultation?.id === id) {
           setSelectedConsultation(up);
         }
@@ -347,7 +367,12 @@ export default function AdminPanel({
       return item;
     });
     setConsultationList(updatedList);
-    localStorage.setItem('moapic_consultations', JSON.stringify(updatedList));
+    if (updated) {
+      upsertConsultation(updated).catch((err) => {
+        console.error(err);
+        alert('상태 변경 중 오류가 발생했습니다.');
+      });
+    }
   };
 
 
@@ -781,6 +806,29 @@ export default function AdminPanel({
                   <div>
                     <h3 className="text-lg font-extrabold text-white">홈페이지 브랜드 로고 및 아이콘 관리</h3>
                     <p className="text-xs text-neutral-400">웹사이트 곳곳에 적용되는 모아픽의 다양한 로고 규격을 실시간으로 변경하고 제어합니다.</p>
+                  </div>
+
+                  {/* 상담 페이지 점검 모드 토글 */}
+                  <div className="p-6 bg-neutral-950/50 border border-neutral-800 rounded-2xl">
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="pr-4">
+                        <h4 className="text-sm font-extrabold text-white">견적상담 페이지 점검 모드</h4>
+                        <p className="text-[11px] text-neutral-400 mt-1 leading-relaxed">
+                          <strong className="text-neutral-200">켜짐(ON)</strong> = 견적상담에 "점검 중" 안내 표시 · <strong className="text-neutral-200">꺼짐(OFF)</strong> = 실제 상담 신청 폼 노출
+                        </p>
+                        <p className={`text-xs mt-2 font-bold ${consultMaintenance ? 'text-amber-400' : 'text-emerald-400'}`}>
+                          현재 상태: {consultMaintenance ? '점검 중 (ON)' : '정상 운영 (OFF)'}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleToggleMaintenance}
+                        title="점검 모드 켜기/끄기"
+                        className={`w-12 h-7 rounded-full p-0.5 shrink-0 transition-colors duration-200 cursor-pointer ${consultMaintenance ? 'bg-amber-500' : 'bg-emerald-500'}`}
+                      >
+                        <div className={`bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-200 ${consultMaintenance ? 'translate-x-0' : 'translate-x-5'}`} />
+                      </button>
+                    </div>
                   </div>
 
                   {/* SECTION 1: MAIN HERO LOGO */}
