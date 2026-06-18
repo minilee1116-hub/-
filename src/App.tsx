@@ -253,25 +253,15 @@ export default function App() {
                   return (
                     <div 
                       key={idx} 
-                      className={`border rounded-2xl p-7 md:p-8 hover:-translate-y-1 transition duration-400 relative overflow-hidden group flex flex-col justify-between ${
-                        isFeatured 
-                          ? 'border-[#4B89FF]/30 bg-neutral-950 shadow-md shadow-[#4B89FF]/5 hover:border-[#4B89FF]/50 hover:shadow-lg hover:shadow-[#4B89FF]/10 text-white' 
-                          : 'border-neutral-900 bg-neutral-950/50 hover:bg-neutral-950 hover:border-[#4B89FF]/30 hover:shadow-xs text-white'
-                      }`}
+                      className="border rounded-2xl p-7 md:p-8 hover:-translate-y-1 transition duration-400 relative overflow-hidden group flex flex-col justify-between border-neutral-900 bg-neutral-950/50 hover:bg-neutral-950 hover:border-[#4B89FF]/30 hover:shadow-xs text-white"
                     >
                       {/* Subtle aesthetic gradient hotspot */}
-                      <div className={`absolute -top-10 -left-10 w-36 h-36 rounded-full blur-3xl pointer-events-none transition-all duration-500 ${
-                        isFeatured ? 'bg-[#4B89FF]/12 group-hover:bg-[#4B89FF]/18' : 'bg-[#4B89FF]/4 group-hover:bg-[#4B89FF]/8'
-                      }`} />
+                      <div className="absolute -top-10 -left-10 w-36 h-36 rounded-full blur-3xl pointer-events-none transition-all duration-500 bg-[#4B89FF]/4 group-hover:bg-[#4B89FF]/8" />
                       
                       <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
                         <div className="space-y-4">
                           {/* Premium Circle Icon Container with Check badge */}
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                            isFeatured 
-                              ? 'bg-[#4B89FF]/15 border border-[#4B89FF]/25 text-[#4B89FF]' 
-                              : 'bg-neutral-900 border border-neutral-900 text-neutral-400 group-hover:text-[#4B89FF] group-hover:bg-[#4B89FF]/10 group-hover:border-[#4B89FF]/20'
-                          }`}>
+                          <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 bg-neutral-900 border border-neutral-900 text-neutral-400 group-hover:text-[#4B89FF] group-hover:bg-[#4B89FF]/10 group-hover:border-[#4B89FF]/20">
                             <Check size={18} className="stroke-[2.5]" />
                           </div>
                           
