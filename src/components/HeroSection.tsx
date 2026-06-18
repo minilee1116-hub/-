@@ -13,7 +13,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onScrollToPortfolio, onScrollToConsulting, customLogo, customMiniLogo }: HeroSectionProps) {
   return (
-    <section className="relative bg-transparent pt-0 pb-10 px-4 md:px-0">
+    <section className="relative bg-transparent pt-5 pb-10 px-4 md:px-0">
       
       {/* 1. Main Isometric Branding Box (MOAPIC YOUTUBE PRODUCTION) */}
       <div className="max-w-7xl mx-auto border-none bg-transparent pt-0 pb-6 px-6 text-center relative overflow-hidden mb-6">
